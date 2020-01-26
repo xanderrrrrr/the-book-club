@@ -1,11 +1,12 @@
 import React from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/Navbar/NavBar";
+import Testing from "./components/Testing/Testing";
 
 // New - import the React Router components, and the Profile page component
 import { Router, Route, Switch } from "react-router-dom";
-import Profile from "./components/Profile";
+import Profile from "./components/Profile/Profile";
 import history from "./utils/history";
-import PrivateRoute from "./components/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
           <PrivateRoute path="/profile" component={Profile} />
         </Switch>
       </Router>
+      <Testing/>
+      <h1>this is a test h1</h1>
     </div>
   );
 }
