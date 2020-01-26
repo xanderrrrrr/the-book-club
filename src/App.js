@@ -25,7 +25,7 @@ function App() {
         </Switch>
       </Router>
 
-      <h1>Welcome to The Book Club</h1>
+      <h1>Welcome to The Book Club -- this should be my footer, but it's currently on App.js</h1>
     </div>
   );
 }
