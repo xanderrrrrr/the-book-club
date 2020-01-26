@@ -4,7 +4,7 @@ import React from "react";
 function Group() {
     return (
         <div>
-            
+            <h1>This is the group page</h1>
         </div>
     );
 }

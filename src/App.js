@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "./components/Navbar/NavBar";
+import Group from "./components/Group/Group";
 // import Testing from "./components/Testing/Testing";
 // I don't need to test the tailwind css properties right now
 
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route path="/" exact />
           <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/group" component={Group} />
         </Switch>
       </Router>
 
