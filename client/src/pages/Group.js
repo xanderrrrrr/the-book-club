@@ -1,7 +1,25 @@
 import React from "react";
+import { Component } from "react";
+import API from "../utils/API";
 // import "./style.css";
+import { List, ListItem} from "../components/List/List";
 
-function Group() {
+class Group extends Component {
+  state = {
+    groups: []
+  };
+
+  componentDidMount() {
+    this.loadGroups();
+  }
+
+  loadGroups = () => {
+    API.getGroups()
+      .then(res => this.setState({ groups: res.data}))
+      .catch(err => console.log(err));
+  };
+
+  render() {
     return (
         <>
         <div>
@@ -28,10 +46,34 @@ function Group() {
             </button>
           </div>
         </div>
+        <div className="groups-go-here">
+        {this.state.groups.length ? (
+              <List>
+                {this.state.groups.map(group => (
+                  <ListItem key={group._id}>
+                    <a href={"/groups/" + group._id}>
+                      <strong>
+                        GroupID: {group.id}
+                        <br/>
+                        {group.name}
+                      </strong>
+                    </a>
+                    <div className="delete-btn-placeholder">
+                      <p>Delete button goes here</p>
+                    </div>
+                  </ListItem>
+                ))}
+              </List>
+            ) : (
+              <h3>No Results to Display</h3>
+            )}
+
+        </div>
       </form>
       </>
         
     );
+  }
 }
 
 export default Group;
